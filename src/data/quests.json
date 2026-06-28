@@ -1,0 +1,29 @@
+[
+  {
+  "id": 1,
+  "title": "Slay the Laundry Dragon",
+  "description": "Fold and put away all laundry.",
+  "difficulty": "Easy",
+  "xp": 10,
+  "skill": "discipline",
+  "status": "incomplete"
+  },
+  {
+    "id": 2,
+    "title": "Retrieve the Sacred Groceries",
+    "description": "Go shopping and restock the fridge.",
+    "difficulty": "Medium",
+    "xp": 25,
+    "skill": "discipline",
+    "status": "incomplete"
+  },
+  {
+    "id": 3,
+    "title": "Forge the Weekly Plan",
+    "description": "Write out your weekly goals and tasks.",
+    "difficulty": "Hard",
+    "xp": 50,
+    "skill": "discipline",
+    "status": "incomplete"
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "name": "Daniel",
+  "class": "Paladin",
+  "level": 1,
+  "xp": 0,
+  "skills": {
+    "acrobatics": {
+      "xp": 0,
+      "points": 0,
+      "tier": "Beginner",
+      "subs": {}
+    },
+    "arcana": {
+      "xp": 0,
+      "points": 0,
+      "tier": "Beginner",
+      "subs": {
+        "python": {
+          "xp": 120,
+          "points": 1,
+          "tier": "Beginner"
+        },
+        "javascript": {
+          "xp": 40,
+          "points": 0,
+          "tier": "Beginner"
+        }
+      }
+    },
+    "athletics": {
+      "xp": 0,
+      "points": 0,
+      "tier": "Beginner",
+      "subs": {
+        "running": {
+          "xp": 300,
+          "points": 2,
+          "tier": "Intermediate"
+        },
+        "strengthTraining": {
+          "xp": 150,
+          "points": 1,
+          "tier": "Beginner"
+        }
+      }
+    }
+  }
+}

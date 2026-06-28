@@ -1,0 +1,325 @@
+/* ===========================
+   GLOBAL THEME
+=========================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Georgia", serif;
+    background: #f4f1e8; /* parchment */
+    color: #2c2c2c;
+}
+
+/* ===========================
+   NAVIGATION
+=========================== */
+
+nav {
+    background: #3b2f2f;
+    color: #f4f1e8;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: #f4f1e8;
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #d4c8a8;
+}
+
+/* ===========================
+   PAGE CONTAINER
+=========================== */
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #fffdf7;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+/* ===========================
+   HEADERS
+=========================== */
+
+h1, h2, h3 {
+    font-family: "Cinzel", serif;
+    color: #3b2f2f;
+    margin-bottom: 1rem;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+button, .btn {
+    background: #6b4f4f;
+    color: #f4f1e8;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover, .btn:hover {
+    background: #8a6b6b;
+}
+
+/* ===========================
+   QUEST LIST
+=========================== */
+
+.quest-card {
+    background: #faf7f0;
+    border-left: 6px solid #6b4f4f;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    transition: transform 0.1s ease;
+}
+
+.quest-card:hover {
+    transform: translateX(4px);
+}
+
+.quest-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.quest-meta {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* ===========================
+   FORMS
+=========================== */
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #c8bfb0;
+    border-radius: 6px;
+    background: #fffdf7;
+    font-size: 1rem;
+}
+
+form textarea {
+    min-height: 120px;
+}
+
+form button {
+    width: 100%;
+}
+
+/* ===========================
+   D&D CHARACTER SHEET LAYOUT
+=========================== */
+
+.sheet-title {
+  font-family: "Cinzel", serif;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.sheet-container {
+  display: flex;
+  gap: 2rem;
+}
+
+/* LEFT COLUMN */
+.sheet-left {
+  width: 45%;
+}
+
+/* RIGHT COLUMN */
+.sheet-right {
+  width: 55%;
+}
+
+/* Character Name Box */
+.char-name-box {
+  background: #faf7f0;
+  padding: 1rem;
+  border: 2px solid #6b4f4f;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.char-class-level {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+/* Ability Scores */
+.ability-scores {
+  background: #faf7f0;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #6b4f4f;
+  margin-bottom: 1.5rem;
+}
+
+.ability-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fffdf7;
+  padding: 0.5rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.ability-label {
+  font-weight: bold;
+}
+
+.ability-score {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.ability-mod {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Skills */
+.skills-section {
+  background: #faf7f0;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #6b4f4f;
+  margin-top: 1.5rem;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skill-base {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #dcd4c0;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skill-name {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.skill-meta {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.subskill-list {
+  list-style: none;
+  padding-left: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.subskill-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem 0;
+}
+
+.subskill-name {
+  font-size: 0.9rem;
+}
+
+.subskill-meta {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+
+/* Combat Stats */
+.combat-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.combat-box {
+  background: #faf7f0;
+  border: 2px solid #6b4f4f;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 45%;
+  text-align: center;
+}
+
+.combat-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.combat-value {
+  font-size: 1.5rem;
+}
+
+/* XP Bar */
+.xp-section {
+  margin-bottom: 2rem;
+}
+
+.xp-bar {
+  width: 100%;
+  height: 20px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.xp-fill {
+  height: 100%;
+  background: #6b4f4f;
+}
+
+.xp-value {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+/* Traits */
+.traits-section {
+  background: #faf7f0;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #6b4f4f;
+}
+
+.traits-box {
+  background: #fffdf7;
+  padding: 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+

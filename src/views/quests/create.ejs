@@ -1,0 +1,64 @@
+<div class="quest-container">
+  <h1>Create Quest</h1>
+
+  <form action="/quests/create" method="POST" class="quest-form">
+
+    <div class="row">
+      <label for="title">Quest Title</label>
+      <input type="text" id="title" name="title">
+    </div>
+
+    <div class="row">
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="4"></textarea>
+    </div>
+
+    <div class="row">
+      <label for="xp">XP Reward</label>
+      <input type="number" id="xp" name="xp">
+    </div>
+
+    <div class="row">
+      <label for="size">Quest Size</label>
+      <select id="size" name="size">
+        <option value="Minor">Minor</option>
+        <option value="Standard">Standard</option>
+        <option value="Major">Major</option>
+        <option value="Epic">Epic</option>
+      </select>
+    </div>
+
+    <button type="submit">Create Quest</button>
+  </form>
+</div>
+
+<div class="quest-list-container">
+  <h1>Your Quests</h1>
+
+  <% if (!quests || quests.length === 0) { %>
+    <p class="no-quests">You currently have no quests.</p>
+  <% } %>
+
+  <% quests.forEach(q => { %>
+    <div class="quest-card">
+      <h2><%= q.title %></h2>
+
+      <p><strong>Description:</strong> <%= q.description %></p>
+      <p><strong>XP:</strong> <%= q.xp %></p>
+      <p><strong>Size:</strong> <%= q.size %></p>
+      <p><strong>Status:</strong> <%= q.completed ? "Completed" : "Active" %></p>
+
+      <div class="quest-buttons">
+        <% if (!q.completed) { %>
+          <form action="/quests/complete/<%= q.id %>" method="POST">
+            <button class="complete-btn">Complete</button>
+          </form>
+        <% } %>
+
+        <form action="/quests/delete/<%= q.id %>" method="POST">
+          <button class="delete-btn">Delete</button>
+        </form>
+      </div>
+    </div>
+  <% }) %>
+</div>

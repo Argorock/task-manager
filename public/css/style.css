@@ -1,325 +1,323 @@
-/* ===========================
-   GLOBAL THEME
-=========================== */
-
+/* GLOBAL */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Georgia", serif;
-    background: #f4f1e8; /* parchment */
-    color: #2c2c2c;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f0f3f8; /* soft blue-gray */
+  color: #222;
 }
 
-/* ===========================
-   NAVIGATION
-=========================== */
-
-nav {
-    background: #3b2f2f;
-    color: #f4f1e8;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav a {
-    color: #f4f1e8;
-    text-decoration: none;
-    margin-right: 1rem;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #d4c8a8;
-}
-
-/* ===========================
-   PAGE CONTAINER
-=========================== */
-
-main {
-    max-width: 900px;
-    margin: 2rem auto;
-    background: #fffdf7;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.15);
-}
-
-/* ===========================
-   HEADERS
-=========================== */
-
-h1, h2, h3 {
-    font-family: "Cinzel", serif;
-    color: #3b2f2f;
-    margin-bottom: 1rem;
-}
-
-/* ===========================
-   BUTTONS
-=========================== */
-
-button, .btn {
-    background: #6b4f4f;
-    color: #f4f1e8;
-    padding: 0.6rem 1.2rem;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-}
-
-button:hover, .btn:hover {
-    background: #8a6b6b;
-}
-
-/* ===========================
-   QUEST LIST
-=========================== */
-
-.quest-card {
-    background: #faf7f0;
-    border-left: 6px solid #6b4f4f;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 6px;
-    transition: transform 0.1s ease;
-}
-
-.quest-card:hover {
-    transform: translateX(4px);
-}
-
-.quest-title {
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-bottom: 0.3rem;
-}
-
-.quest-meta {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* ===========================
-   FORMS
-=========================== */
-
-form input,
-form textarea,
-form select {
-    width: 100%;
-    padding: 0.6rem;
-    margin-bottom: 1rem;
-    border: 1px solid #c8bfb0;
-    border-radius: 6px;
-    background: #fffdf7;
-    font-size: 1rem;
-}
-
-form textarea {
-    min-height: 120px;
-}
-
-form button {
-    width: 100%;
-}
-
-/* ===========================
-   D&D CHARACTER SHEET LAYOUT
-=========================== */
-
-.sheet-title {
-  font-family: "Cinzel", serif;
+h1 {
   text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
+  margin-bottom: 25px;
+  font-size: 34px;
+  letter-spacing: 1px;
+  color: #2a3a5e; /* deep blue */
 }
 
-.sheet-container {
+/* SECTION BOXES */
+section {
+  background: #ffffff;
+  padding: 20px;
+  margin: 25px auto;
+  border: 2px solid #2a3a5e; /* deep blue border */
+  border-radius: 10px;
+  max-width: 950px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 22px;
+  border-bottom: 2px solid #2a3a5e;
+  padding-bottom: 6px;
+  color: #2a3a5e;
+}
+
+/* ROWS */
+.row {
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  margin: 10px 0;
 }
 
-/* LEFT COLUMN */
-.sheet-left {
-  width: 45%;
+.row label {
+  width: 160px;
+  font-weight: bold;
+  color: #3b4c72;
 }
 
-/* RIGHT COLUMN */
-.sheet-right {
-  width: 55%;
+.row input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #9aa6c4;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #f7f9fc;
 }
 
-/* Character Name Box */
-.char-name-box {
-  background: #faf7f0;
-  padding: 1rem;
-  border: 2px solid #6b4f4f;
+/* STATS GRID */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.stat-grid div {
+  background: #f7f9fc;
+  padding: 10px;
+  border: 1px solid #9aa6c4;
   border-radius: 8px;
-  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-.char-class-level {
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
+.stat-grid label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+  color: #3b4c72;
 }
 
-/* Ability Scores */
-.ability-scores {
-  background: #faf7f0;
-  padding: 1rem;
+.stat-grid input {
+  width: 60px;
+  padding: 6px;
+  border: 1px solid #9aa6c4;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 15px;
+  background: #ffffff;
+}
+
+/* SKILLS */
+.skill-block {
+  background: #f7f9fc;
+  border: 1px solid #9aa6c4;
+  padding: 15px;
   border-radius: 8px;
-  border: 2px solid #6b4f4f;
-  margin-bottom: 1.5rem;
+  margin-bottom: 20px;
 }
 
-.ability-box {
+.skill-block h3 {
+  margin: 0 0 10px 0;
+  color: #2a3a5e;
+  border-bottom: 1px solid #9aa6c4;
+  padding-bottom: 4px;
+}
+
+.subskills .skill {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fffdf7;
-  padding: 0.5rem;
+  background: #ffffff;
+  padding: 8px;
+  border: 1px solid #9aa6c4;
   border-radius: 6px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 
-.ability-label {
+.skill span {
   font-weight: bold;
+  color: #3b4c72;
 }
 
-.ability-score {
-  font-size: 1.4rem;
-  font-weight: bold;
-}
-
-.ability-mod {
-  font-size: 1.2rem;
-  color: #555;
-}
-
-/* Skills */
-.skills-section {
-  background: #faf7f0;
-  padding: 1rem;
-  border-radius: 8px;
-  border: 2px solid #6b4f4f;
-  margin-top: 1.5rem;
-}
-
-.skills-list {
-  list-style: none;
-  padding: 0;
-}
-
-.skill-base {
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.3rem;
-  border-bottom: 1px solid #dcd4c0;
-}
-
-.skill-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.skill-name {
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.skill-meta {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.subskill-list {
-  list-style: none;
-  padding-left: 1rem;
-  margin-bottom: 0.8rem;
-}
-
-.subskill-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.2rem 0;
-}
-
-.subskill-name {
-  font-size: 0.9rem;
-}
-
-.subskill-meta {
-  font-size: 0.85rem;
-  color: #666;
-}
-
-
-/* Combat Stats */
-.combat-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.combat-box {
-  background: #faf7f0;
-  border: 2px solid #6b4f4f;
-  border-radius: 8px;
-  padding: 1rem;
-  width: 45%;
+.skill input {
+  width: 70px;
+  padding: 6px;
+  border: 1px solid #9aa6c4;
+  border-radius: 6px;
   text-align: center;
+  background: #ffffff;
 }
 
-.combat-label {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+/* ADD SUB-SKILL */
+.skills .row input {
+  margin-right: 10px;
 }
 
-.combat-value {
-  font-size: 1.5rem;
-}
-
-/* XP Bar */
-.xp-section {
-  margin-bottom: 2rem;
-}
-
-.xp-bar {
-  width: 100%;
-  height: 20px;
-  background: #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.xp-fill {
-  height: 100%;
-  background: #6b4f4f;
-}
-
-.xp-value {
-  margin-top: 0.5rem;
-  font-weight: bold;
-}
-
-/* Traits */
-.traits-section {
-  background: #faf7f0;
-  padding: 1rem;
-  border-radius: 8px;
-  border: 2px solid #6b4f4f;
-}
-
-.traits-box {
-  background: #fffdf7;
-  padding: 0.8rem;
+.skills button {
+  padding: 8px 14px;
+  background: #2a3a5e;
+  color: white;
+  border: none;
   border-radius: 6px;
-  margin-bottom: 1rem;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.skills button:hover {
+  background: #3b4c72;
+}
+
+/* TEXTAREAS */
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #9aa6c4;
+  border-radius: 8px;
+  resize: vertical;
+  background: #f7f9fc;
+  font-size: 15px;
+}
+
+/* HEADER + FOOTER */
+header nav {
+  background: #2a3a5e;
+  padding: 12px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+header nav a {
+  color: white;
+  margin: 0 20px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  padding: 20px;
+  background: #dfe3ec;
+  border-top: 2px solid #2a3a5e;
+  font-size: 16px;
+  color: #2a3a5e;
+}
+
+
+/* QUEST PAGE */
+.quest-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 25px;
+  border: 2px solid #2a3a5e;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.quest-container h1 {
+  text-align: center;
+  color: #2a3a5e;
+  margin-bottom: 20px;
+}
+
+.quest-form .row {
+  margin: 15px 0;
+}
+
+.quest-form label {
+  font-weight: bold;
+  color: #3b4c72;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.quest-form input,
+.quest-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #9aa6c4;
+  border-radius: 6px;
+  background: #f7f9fc;
+  font-size: 15px;
+}
+
+.quest-form textarea {
+  resize: vertical;
+}
+
+.quest-form button {
+  margin-top: 20px;
+  padding: 10px 18px;
+  background: #2a3a5e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.quest-form button:hover {
+  background: #3b4c72;
+}
+
+
+/* QUEST LIST */
+.quest-list-container {
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.quest-list-container h1 {
+  text-align: center;
+  color: #2a3a5e;
+  margin-bottom: 20px;
+}
+
+.no-quests {
+  text-align: center;
+  color: #3b4c72;
+  font-size: 18px;
+}
+
+.quest-card {
+  background: #ffffff;
+  border: 2px solid #2a3a5e;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.quest-card h2 {
+  margin-top: 0;
+  color: #2a3a5e;
+}
+
+.quest-card p {
+  margin: 6px 0;
+  color: #3b4c72;
+}
+
+.quest-buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.complete-btn {
+  background: #2a3a5e;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.complete-btn:hover {
+  background: #3b4c72;
+}
+
+.delete-btn {
+  background: #b02a2a;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #d13c3c;
+}
+
+.quest-form button:hover {
+  background: #3b4c72;
 }
 

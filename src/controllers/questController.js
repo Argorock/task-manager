@@ -1,25 +1,47 @@
-const Quest = require("../models/questModel");
+const db = require("../../db");
 
-exports.list = (req, res) => {
-  const quests = Quest.getAll();
-  res.render("quests/list", { title: "Quest List", quests });
+// Show the quest creation page
+exports.createForm = async (req, res) => {
+  try {
+    const [quests] = await db.query("SELECT * FROM task ORDER BY created_at DESC");
+
+    res.render("quests/create", {
+      title: "Your Quests",
+      quests
+    });
+  } catch (err) {
+    console.error(err);
+    res.render("quests/create", {
+      title: "Your Quests",
+      quests: []
+    });
+  }
 };
 
-exports.detail = (req, res) => {
-  const quest = Quest.getById(req.params.id);
-  res.render("quests/detail", { title: quest.title, quest });
-};
+// Create a new quest (insert into task)
+exports.createQuest = async (req, res) => {
+  const { title, description, xp } = req.body;
 
-exports.createForm = (req, res) => {
-  res.render("quests/create", { title: "Create Quest" });
-};
+  await db.query(
+    "INSERT INTO task (name, description, xp_reward, completed, created_at) VALUES (?, ?, ?, 0, NOW())",
+    [title, description, xp]
+  );
 
-exports.createQuest = (req, res) => {
-  Quest.add(req.body);
   res.redirect("/quests");
 };
 
-exports.completeQuest = (req, res) => {
-  Quest.complete(req.params.id);
+// Mark quest as complete
+exports.completeQuest = async (req, res) => {
+  await db.query("UPDATE task SET completed = 1 WHERE idtask = ?", [
+    req.params.id
+  ]);
+
+  res.redirect("/quests");
+};
+
+// Delete a quest
+exports.deleteQuest = async (req, res) => {
+  await db.query("DELETE FROM task WHERE idtask = ?", [req.params.id]);
+
   res.redirect("/quests");
 };

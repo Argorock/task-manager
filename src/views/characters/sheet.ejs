@@ -1,0 +1,91 @@
+<h1>Character Sheet</h1>
+
+<section class="identity">
+  <h2>Identity</h2>
+  <div class="row"><label>Name</label><input type="text"></div>
+  <div class="row"><label>Class</label><input type="text"></div>
+  <div class="row"><label>Level</label><input type="number"></div>
+  <div class="row"><label>Background</label><input type="text"></div>
+</section>
+
+<section class="stats">
+  <h2>Core Stats</h2>
+  <div class="stat-grid">
+    <div><label>STR</label><input type="number"></div>
+    <div><label>DEX</label><input type="number"></div>
+    <div><label>CON</label><input type="number"></div>
+    <div><label>INT</label><input type="number"></div>
+    <div><label>WIS</label><input type="number"></div>
+    <div><label>CHA</label><input type="number"></div>
+  </div>
+</section>
+
+<section class="combat">
+  <h2>Combat</h2>
+  <div class="row"><label>HP</label><input type="text"></div>
+  <div class="row"><label>AC</label><input type="number"></div>
+  <div class="row"><label>Initiative</label><input type="text"></div>
+  <div class="row"><label>Speed</label><input type="text"></div>
+</section>
+
+<section class="skills">
+  <h2>Skills</h2>
+
+  <div id="skills-container">
+
+    <% const dndSkills = [
+      "Acrobatics", "Animal Handling", "Arcana", "Athletics",
+      "Deception", "History", "Insight", "Intimidation",
+      "Investigation", "Medicine", "Nature", "Perception",
+      "Performance", "Persuasion", "Religion", "Sleight of Hand",
+      "Stealth", "Survival"
+    ]; %>
+
+    <% dndSkills.forEach(skill => { %>
+      <div class="skill-block" id="<%= skill %>">
+        <h3><%= skill %></h3>
+
+        <div class="subskills"></div>
+
+        <div class="row">
+          <input type="text" class="subskill-name" placeholder="Sub-skill name">
+          <input type="number" class="subskill-value" placeholder="Bonus">
+          <button onclick="addSubSkill('<%= skill %>')">Add</button>
+        </div>
+      </div>
+    <% }) %>
+
+  </div>
+</section>
+
+<section class="features">
+  <h2>Features & Traits</h2>
+  <textarea rows="4"></textarea>
+</section>
+
+<section class="inventory">
+  <h2>Inventory</h2>
+  <textarea rows="4"></textarea>
+</section>
+
+<script>
+  function addSubSkill(skillName) {
+    const block = document.getElementById(skillName);
+    const nameInput = block.querySelector(".subskill-name");
+    const valueInput = block.querySelector(".subskill-value");
+
+    const name = nameInput.value.trim();
+    const value = valueInput.value.trim();
+
+    if (!name) return;
+
+    const container = block.querySelector(".subskills");
+    const div = document.createElement("div");
+    div.className = "skill";
+    div.innerHTML = `<span>${name}</span><input type="number" value="${value || ''}">`;
+    container.appendChild(div);
+
+    nameInput.value = "";
+    valueInput.value = "";
+  }
+</script>

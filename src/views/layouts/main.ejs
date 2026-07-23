@@ -6,12 +6,20 @@
 </head>
 <body>
 
-<header>
-    <nav>
-        <a href="/characters">Character Sheet</a>
-        <a href="/quests/create">Create Quest</a>
+<header class="site-header">
+    <nav class="navbar">
+        <div class="nav-left">
+            <a class="brand" href="/">Arcane Chronicles</a>
+        </div>
+
+        <div class="nav-right">
+            <a href="/characters">Character Sheet</a>
+            <a href="/quests/create">Create Quest</a>
+            <a href="/quests">Quests</a>
+        </div>
     </nav>
 </header>
+
 
 <main>
     <%- body %>

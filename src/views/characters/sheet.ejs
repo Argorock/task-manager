@@ -89,3 +89,14 @@
     valueInput.value = "";
   }
 </script>
+
+<form action="/characters/sheet/save" method="POST">
+  <input type="text" name="name" value="<%= character ? character.name : '' %>">
+  <input type="text" name="className" value="<%= character ? character.class : '' %>">
+  <input type="number" name="level" value="<%= character ? character.level : 1 %>">
+
+  <textarea name="stats"><%= character ? JSON.stringify(character.stats) : '{}' %></textarea>
+
+  <button type="submit">Save</button>
+</form>
+

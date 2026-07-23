@@ -7,6 +7,13 @@ body {
   color: #222;
 }
 
+.sheet-container section {
+  max-width: none !important;
+  margin: 0 !important;
+  width: 100%;
+}
+
+
 h1 {
   text-align: center;
   margin-bottom: 25px;
@@ -149,6 +156,72 @@ h2 {
   background: #3b4c72;
 }
 
+/* FIX: Features & Inventory inside a centered flex container */
+.sheet-container {
+  max-width: 950px;      /* match the rest of the sheet */
+  margin: 25px auto;     /* center it */
+  display: flex;
+  gap: 24px;
+}
+
+/* Override global section rules ONLY inside sheet-container */
+.sheet-container > section {
+  margin: 0 !important;      /* remove auto-centering */
+  max-width: none !important;/* allow flexbox to size them */
+  flex: 1;                   /* make them equal width */
+}
+
+
+.sheet-section {
+  padding: 20px;
+}
+
+.sheet-section textarea {
+  background: #ffffff !important;
+  border: 2px solid #2a3a5e !important;
+  border-radius: 10px !important;
+}
+
+
+
+.sheet-container {
+  margin-bottom: 40px;
+}
+
+
+
+.sheet-bottom {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+    align-items: center;
+}
+
+.sheet-bottom input {
+    padding: 8px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+
+.sheet-bottom button {
+    padding: 10px 16px;
+    background: #1e1e2f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sheet-bottom button:hover {
+    background: #2c2c45;
+}
+
+/* Hide raw JSON */
+.hidden-json {
+    display: none;
+}
+
+
 /* TEXTAREAS */
 textarea {
   width: 100%;
@@ -218,6 +291,12 @@ footer {
   font-size: 16px;
   color: #2a3a5e;
 }
+
+
+
+
+
+
 
 
 /* QUEST PAGE */

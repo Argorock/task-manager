@@ -58,15 +58,18 @@
   </div>
 </section>
 
-<section class="features">
-  <h2>Features & Traits</h2>
-  <textarea rows="4"></textarea>
-</section>
 
-<section class="inventory">
-  <h2>Inventory</h2>
-  <textarea rows="4"></textarea>
-</section>
+<div class="sheet-container">
+  <section class="features sheet-section">
+    <h2>Features & Traits</h2>
+    <textarea class="sheet-box" rows="6"></textarea>
+  </section>
+
+  <section class="inventory sheet-section">
+    <h2>Inventory</h2>
+    <textarea class="sheet-box" rows="6"></textarea>
+  </section>
+</div>
 
 <script>
   function addSubSkill(skillName) {
@@ -90,13 +93,67 @@
   }
 </script>
 
-<form action="/characters/sheet/save" method="POST">
-  <input type="text" name="name" value="<%= character ? character.name : '' %>">
-  <input type="text" name="className" value="<%= character ? character.class : '' %>">
-  <input type="number" name="level" value="<%= character ? character.level : 1 %>">
-
-  <textarea name="stats"><%= character ? JSON.stringify(character.stats) : '{}' %></textarea>
-
-  <button type="submit">Save</button>
+<form id="autosave-form" action="/characters/sheet/save" method="POST">
+  <input type="hidden" name="name">
+  <input type="hidden" name="className">
+  <input type="hidden" name="level">
+  <textarea name="stats" id="stats-json" hidden></textarea>
 </form>
+
+<script>
+  function gatherSheetData() {
+    const data = {};
+
+    data.name = document.querySelector('.identity input:nth-child(2)').value;
+    data.className = document.querySelector('.identity input:nth-child(4)').value;
+    data.level = document.querySelector('.identity input:nth-child(6)').value;
+
+
+    const stats = {};
+    document.querySelectorAll('.stat-grid input').forEach((input, i) => {
+      const keys = ["str", "dex", "con", "int", "wis", "cha"];
+      stats[keys[i]] = Number(input.value || 0);
+    });
+
+
+    const skillData = {};
+    document.querySelectorAll('.skill-block').forEach(block => {
+      const skillName = block.id;
+      const subskills = [];
+
+      block.querySelectorAll('.subskills .skill').forEach(sub => {
+        const name = sub.querySelector('span').innerText;
+        const value = Number(sub.querySelector('input').value || 0);
+        subskills.push({ name, value });
+      });
+
+      skillData[skillName] = subskills;
+    });
+
+    data.features = document.querySelector('.features textarea').value;
+    data.inventory = document.querySelector('.inventory textarea').value;
+
+
+    data.stats = {
+      ...stats,
+      skills: skillData,
+      features: data.features,
+      inventory: data.inventory
+    };
+
+    return data;
+  }
+
+  window.addEventListener("beforeunload", () => {
+    const data = gatherSheetData();
+
+    const form = document.getElementById("autosave-form");
+    form.querySelector("[name='name']").value = data.name;
+    form.querySelector("[name='className']").value = data.className;
+    form.querySelector("[name='level']").value = data.level;
+    form.querySelector("#stats-json").value = JSON.stringify(data.stats);
+
+    form.submit();
+  });
+</script>
 
